@@ -1,0 +1,16 @@
+apiVersion: v2
+name       : Prom-HelmChart
+description: SameDude prom helm chart
+type       : application
+version    : 0.1.0   # This is the Helm Chart version
+appVersion : "Prom 0.01 Alpha" # This is the version of the application being deployed
+
+keywords:
+  - nginx
+  - http
+  - https
+  - proxy
+
+maintainers:
+  - name : SameDude
+    email: samedude@samemail.com
