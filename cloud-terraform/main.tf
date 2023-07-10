@@ -57,9 +57,13 @@ resource "yandex_kubernetes_cluster" "kub-diploma" {
   release_channel = "RAPID"
 
   # Указываем сервисный аккаунт, который будут использовать ноды, и кластер для управления нодами
-  node_service_account_id = yandex_iam_service_account.docker.id
-  service_account_id      = yandex_iam_service_account.instances.id
-
+  service_account_id      = yandex_iam_service_account.myaccount.id
+  node_service_account_id = yandex_iam_service_account.myaccount.id
+  depends_on = [
+    yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
+    yandex_resourcemanager_folder_iam_member.vpc-public-admin,
+    yandex_resourcemanager_folder_iam_member.images-puller
+  ]
 }
 
 # Создаем группу узлов

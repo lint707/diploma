@@ -42,3 +42,5 @@ spec:
             subPath: dashboard.yaml
           - mountPath: "/var/lib/grafana/dashboards"
             name: grafana-pv-storage
+      imagePullSecrets:
+      - name: grafanasec

@@ -17,23 +17,8 @@ spec:
           configMap:
             name: {{ .Release.Name }}-cm
       containers:
-        - name: exporter
-          image: nginx/nginx-prometheus-exporter:latest
-          args:
-            - "-nginx.scrape-uri=http://localhost/nginx_status"
-          resources:
-            limits:
-              cpu: 100m
-              memory: 100Mi
-            requests:
-              cpu: 10m
-              memory: 100Mi
-          ports:
-            - containerPort: 9113
-          stdin: true
-          tty: true
         - name: nginx
-          image: lint707/nginx_netology:3.17.3
+          image: lint707/nginx_diploma:3.17.24
           resources:
             limits:
               cpu: 100m
@@ -50,4 +35,19 @@ spec:
               subPath: mysite.conf
             - name: nginx-cm
               mountPath: /etc/nginx/nginx.conf
-              subPath: nginx.conf              
+              subPath: nginx.conf
+        - name: exporter
+          image: nginx/nginx-prometheus-exporter:0.11
+          args:
+            - "-nginx.scrape-uri=http://localhost/nginx_status"
+          resources:
+            limits:
+              cpu: 100m
+              memory: 100Mi
+            requests:
+              cpu: 10m
+              memory: 100Mi
+          ports:
+            - containerPort: 9113
+          stdin: true
+          tty: true
