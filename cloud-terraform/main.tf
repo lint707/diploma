@@ -62,7 +62,9 @@ resource "yandex_kubernetes_cluster" "kub-diploma" {
   depends_on = [
     yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
     yandex_resourcemanager_folder_iam_member.vpc-public-admin,
-    yandex_resourcemanager_folder_iam_member.images-puller
+    yandex_resourcemanager_folder_iam_member.images-puller,
+    yandex_resourcemanager_folder_iam_member.images-pusher,
+    yandex_resourcemanager_folder_iam_member.editor
   ]
 }
 

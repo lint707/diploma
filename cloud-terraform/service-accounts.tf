@@ -27,8 +27,21 @@ resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
   member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
 }
 
+resource "yandex_resourcemanager_folder_iam_member" "images-pusher" {
+  # Сервисному аккаунту назначается роль "container-registry.images.pusher".
+  folder_id = var.yc_folder_id
+  role      = "container-registry.images.pusher"
+  member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
+}
+
 resource "yandex_resourcemanager_folder_iam_member" "viewer" {
   folder_id = var.yc_folder_id
   role      = "viewer"
+  member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
+}
+
+resource "yandex_resourcemanager_folder_iam_member" "editor" {
+  folder_id = var.yc_folder_id
+  role      = "editor"
   member    = "serviceAccount:${yandex_iam_service_account.myaccount.id}"
 }

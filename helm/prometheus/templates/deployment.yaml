@@ -47,3 +47,5 @@ spec:
         ports:
         - name: metrics 
           containerPort: 9100 
+      imagePullSecrets:
+      - name: promsec          

@@ -51,3 +51,5 @@ spec:
             - containerPort: 9113
           stdin: true
           tty: true
+      imagePullSecrets:
+      - name: nginxsec          
