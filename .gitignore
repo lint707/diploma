@@ -1,3 +1,4 @@
-*.tfvars
-*.tfstate.backup
+private.auto.tfvars
+terraform.tfstate
+terraform.tfstate.backup
 key.json
