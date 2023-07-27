@@ -34,7 +34,7 @@ resource "yandex_kubernetes_cluster" "kub-test" {
   }
 
   # Указываем канал обновлений
-  release_channel = "RAPID"
+  release_channel = "STABLE"
 
   # Указываем сервисный аккаунт, который будут использовать ноды, и кластер для управления нодами
   node_service_account_id = yandex_iam_service_account.docker.id
