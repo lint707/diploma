@@ -8,17 +8,17 @@ pipeline {
         }
         stage('docker1') {
             steps {
-                sh 'sudo docker build . -t lint707/nginx_diploma:3.18.$BUILD_NUMBER'
+                sh 'sudo docker build . -t lint707/nginx_diploma:3.19.$BUILD_NUMBER'
             }
         }
         stage('docke2') {
             steps {
-                sh 'sudo docker push lint707/nginx_diploma:3.18.$BUILD_NUMBER'
+                sh 'sudo docker push lint707/nginx_diploma:3.19.$BUILD_NUMBER'
             }
         }
         stage('push1') {
             steps {
-                sh 'helm upgrade nginx /home/jenkins/diploma/helm/nginx_diploma --set image="lint707/nginx_diploma:3.18.$BUILD_NUMBER"'
+                sh 'helm upgrade nginx /home/jenkins/diploma/helm/nginx_diploma --set image="lint707/nginx_diploma:3.19.$BUILD_NUMBER"'
             }
         }        
     }
